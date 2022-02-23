@@ -1,0 +1,4 @@
+1. https://neelpmehta.wordpress.com/analog-pid-control-using-op-amps/
+2. https://www.electronoobs.com/eng_arduino_tut39.php
+3. https://www.electronics-tutorials.ws/power/triac.html
+4. https://reviseomatic.org/help/x-555/555%20PWM%20Dimmer.php

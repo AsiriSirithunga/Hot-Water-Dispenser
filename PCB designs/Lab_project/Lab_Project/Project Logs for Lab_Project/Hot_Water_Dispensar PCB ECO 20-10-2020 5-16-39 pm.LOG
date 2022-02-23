@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=NetJ5_1 Pin=J5-3
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component U UA741CP
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component U LM7905CT/NOPB
+Added Room: Name=Hot_Water_Dispensar

@@ -1,0 +1,38 @@
+Change Component Designator: OldDesignator=C? NewDesignator=C7
+Change Component Designator: OldDesignator=C? NewDesignator=C8
+Change Component Designator: OldDesignator=R NewDesignator=VR1
+Change Component Designator: OldDesignator=R NewDesignator=VR2
+Change Component Designator: OldDesignator=R NewDesignator=VR3
+Change Component Designator: OldDesignator=R? NewDesignator=R5
+Change Component Designator: OldDesignator=R? NewDesignator=R6
+Change Component Designator: OldDesignator=R? NewDesignator=R7
+Change Component Designator: OldDesignator=R? NewDesignator=R8
+Change Component Designator: OldDesignator=R? NewDesignator=R9
+Change Component Designator: OldDesignator=R? NewDesignator=R10
+Change Component Designator: OldDesignator=U? NewDesignator=U1
+Change Component Designator: OldDesignator=U? NewDesignator=U2
+Change Net Name : Old Net Name=NetC?_1 New Net Name=NetC7_1
+Change Net Name : Old Net Name=NetC?_2 New Net Name=NetC7_2
+Change Net Name : Old Net Name=NetR?_2 New Net Name=NetR6_2
+Change Net Name : Old Net Name=NetR_2 New Net Name=NetR5_1
+Added Pin To Net: NetName=NetC8_1 Pin=C8-1
+Added Pin To Net: NetName=NetC8_1 Pin=R7-2
+Added Pin To Net: NetName=NetC8_1 Pin=U1-6
+Added Pin To Net: NetName=NetC8_1 Pin=VR1-2
+Added Net: Name=NetC8_1
+Added Pin To Net: NetName=NetC8_2 Pin=C8-2
+Added Pin To Net: NetName=NetC8_2 Pin=R7-1
+Added Pin To Net: NetName=NetC8_2 Pin=U1-7
+Added Net: Name=NetC8_2
+Added Pin To Net: NetName=NetR5_2 Pin=R5-2
+Added Pin To Net: NetName=NetR5_2 Pin=U1-1
+Added Net: Name=NetR5_2
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component C8 Cap
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component R5 Res2
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component R6 Res2
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component R7 Res2
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component R8 Res2
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component R9 Res2
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component U1 TL074IN
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component VR2 3296W-1-100
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component VR3 3296W-1-100

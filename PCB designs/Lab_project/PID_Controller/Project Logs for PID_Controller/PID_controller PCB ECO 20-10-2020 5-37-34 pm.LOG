@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=VCC+ Pin=power-1
+Removed Pin From Net: NetName=GND Pin=power-3
+Change Component DesignItemId : Designator=power Old DesignItemId=282834-3 New DesignItemId=282837-3
+Change Component Footprint: Designator=power Old Footprint=TE_282834-3 New Footprint=TE_282837-3
+Change Component Comment : Designator=power Old Comment=282834-3 New Comment=282837-3
+Change Component Description : Designator=power Old Description=3 Position Wire to Board Terminal Block Horizontal with Board 0.100 _2.54mm_ New Description=Wire to Board 3 Position 5.08 mm Pitch 30-16 AWG Euro Style Terminal Block
+Change Component Library : Designator=power Old Library=282834-3.IntLib New Library=282837-3.IntLib
+Change component parameters: Designator = "power"; Footprint = "TE_282837-3"; UniqueID = "\TTVUCFNG"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Comment_1"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Digi-Key_Part_Number"; Value = "A113321-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Digi-Key_Purchase_URL"; Value = "https://www.digikey.in/product-detail/en/te-connectivity-amp-connectors/282837-3/A113321-ND/2187974?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "282837-3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/282837-3/TE%20Connectivity%20AMP%20Connectors/view-part/2765182/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "TE_purchase_URL"; Value = "https://www.te.com/usa-en/product-282837-3.html?te_bu=Cor&te_type=disp&te_campaign=seda_glo_cor-seda-global-disp-prtnr-fy19-seda-model-bom-cta_sma-317_1&elqCampaignId=32493"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=power-1
+Added Pin To Net: NetName=VCC+ Pin=power-3
+Added Room: Name=PID_controller

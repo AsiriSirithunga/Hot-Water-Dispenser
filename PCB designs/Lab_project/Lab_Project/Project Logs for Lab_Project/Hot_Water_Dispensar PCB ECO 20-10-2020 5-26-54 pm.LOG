@@ -1,0 +1,23 @@
+Removed Member From Class: ClassName=Hot_Water_Dispensar Member=J6
+Added Component: Designator=J(PHOENIX_1935161)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Digi-Key_Part_Number"; Value = "277-1667-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digi-Key_Purchase_URL"; Value = "https://www.digikey.ca/product-detail/en/phoenix-contact/1935161/277-1667-ND/568614?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "1935161"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/1935161/Phoenix%20Contact/view-part/423515/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VCC- Pin=J5-1
+Added Pin To Net: NetName=VCC+ Pin=J5-2
+Added Pin To Net: NetName=NetJ_1 Pin=J-1
+Added Pin To Net: NetName=NetJ_1 Pin=R11-2
+Added Pin To Net: NetName=NetJ_1 Pin=U-2
+Added Net: Name=NetJ_1
+Added Pin To Net: NetName=NetJ_2 Pin=J-2
+Added Pin To Net: NetName=NetJ_2 Pin=R4-2
+Added Pin To Net: NetName=NetJ_2 Pin=U-6
+Added Net: Name=NetJ_2
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component J Transformer_out
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component U UA741CP
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component U LM7905CT/NOPB

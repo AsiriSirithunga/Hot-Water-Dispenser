@@ -1,0 +1,8 @@
+Change Component Designator: OldDesignator=J NewDesignator=J1
+Change Component Designator: OldDesignator=J NewDesignator=J2
+Change Net Name : Old Net Name=NetJ_1 New Net Name=NetJ1_2
+Added Pin To Net: NetName=NetJ1_1 Pin=J1-1
+Added Pin To Net: NetName=NetJ1_1 Pin=J2-2
+Added Net: Name=NetJ1_1
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component J1 AC_Connection
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component J2 Transformer_input

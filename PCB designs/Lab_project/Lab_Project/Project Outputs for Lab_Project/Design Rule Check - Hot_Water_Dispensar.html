@@ -1,0 +1,474 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD17\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">20/10/2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">8:28:04 pm</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc" class="file"><acronym title="C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc">C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">42</td></tr>
+</table>
+</td>
+</table><a name="ID1WL2KYEJHIZELSENFJPQYTUKYGFFTAP3J1GK2RLEBQ0H0VZPTYJK"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTU3PECEBTMU5EZNUCKFHUW0AWJWY3DSIVOGIEZHXBIHKNYJUTZPC">Clearance Constraint (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXNNDJJTM2LOWKCUK3RP4NAQZDNAMTHFKKGEIDYF33W03YWHHMEFD">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXX33GLQANTVWHSGC2OV1H11BBEKY3SK3JWWWFDH44F1VAWDBWZ1L">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCUYHP20WWZOXMCCP2UAJCKF2WGTW1UP1JJZBUTDSPGVDMCWURZRI">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHZS25N2DDVEZKKFMM3M2MRARIC2YSTKD2KPNFDE1ZHB2IC1MDUJJ">Width Constraint (Min=10mil) (Max=30mil) (Preferred=30mil) (All)</a></td>
+<td class="column2">7</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEIGLXME3H0CAIYDX13QAUBWOCCTV0VW1ID33AACZBUGE0XIL2IWG">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDAO5WWHKHLCRESOYYP5EN4V1MLCMH30WESXCVREGDMR3BFGPE2WE">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEWGDN4WHZAXTC5BA0J1YC555GGZIKJGHENAAOAG3EIRI44IDZ1AJ">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNBUV00YJTSNSE3DUQWG4NX2QOJKGP20RPYX244II4I2PXXKAVPHP">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1Z4V5OWI3UQ3P3QGCTTY4KQELK3ACNTBXQUZ3MJLDIYJXLPG3VGP">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">21</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEUCE00BPEDPOKII4MVIF5JGELBT0GA4UA4F2KGRW5RAJ2LBXDL">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPWZZB3E1RPMONPDRWGS2PAQT2OERNZ2JZ3DEM3I3GDS0GJXKQJND">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMRC425YLN0NCOQXEWLA0MQCH0C41P3TEPICMYFHHROW0LR2TTAZK">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">42</td>
+</tr>
+</table><br><a name="IDXX33GLQANTVWHSGC2OV1H11BBEKY3SK3JWWWFDH44F1VAWDBWZ1L"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3641mil|Location2.X=4279.48mil|Location1.Y=4999.52mil|Location2.Y=6032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3641mil|Location2.X=4279.48mil|Location1.Y=4999.52mil|Location2.Y=6032mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (3670mil,6003mil) from Top Layer to Bottom Layer And Pad J4-3(4243mil,5036mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4692mil|Location2.X=4846mil|Location1.Y=3540mil|Location2.Y=3873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4692mil|Location2.X=4846mil|Location1.Y=3540mil|Location2.Y=3873mil|Absolute=True">Un-Routed Net Constraint: Net VCC+ Between Via (4721mil,3844mil) from Top Layer to Bottom Layer And Via (4817mil,3569mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3499mil|Location2.X=4015mil|Location1.Y=4172mil|Location2.Y=4505mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3499mil|Location2.X=4015mil|Location1.Y=4172mil|Location2.Y=4505mil|Absolute=True">Un-Routed Net Constraint: Net VCC- Between Pad C5-2(3599mil,4272mil) on Multi-Layer And Track (3915mil,4405mil)(3921mil,4411mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4425mil|Location2.X=4499mil|Location1.Y=7845mil|Location2.Y=8153mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4425mil|Location2.X=4499mil|Location1.Y=7845mil|Location2.Y=8153mil|Absolute=True">Un-Routed Net Constraint: Net PID_OUT Between Via (4454mil,7874mil) from Top Layer to Bottom Layer And Via (4470mil,8124mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDHZS25N2DDVEZKKFMM3M2MRARIC2YSTKD2KPNFDE1ZHB2IC1MDUJJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Width Constraint (Min=10mil) (Max=30mil) (Preferred=30mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1944.926mil|Location2.X=2027.926mil|Location1.Y=5011.713mil|Location2.Y=5094.713mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1944.926mil|Location2.X=2027.926mil|Location1.Y=5011.713mil|Location2.Y=5094.713mil|Absolute=True">Width Constraint: Track (1986.426mil,2704mil)(1986.426mil,7402.426mil) on Bottom Layer Actual Width = 80mil, Target Width = 30mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2293.5mil|Location2.X=2376.5mil|Location1.Y=7790mil|Location2.Y=7873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2293.5mil|Location2.X=2376.5mil|Location1.Y=7790mil|Location2.Y=7873mil|Absolute=True">Width Constraint: Track (2335mil,7751mil)(2335mil,7912mil) on Bottom Layer Actual Width = 80mil, Target Width = 30mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2119.213mil|Location2.X=2202.213mil|Location1.Y=7535.213mil|Location2.Y=7618.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2119.213mil|Location2.X=2202.213mil|Location1.Y=7535.213mil|Location2.Y=7618.213mil|Absolute=True">Width Constraint: Track (1986.426mil,7402.426mil)(2335mil,7751mil) on Bottom Layer Actual Width = 80mil, Target Width = 30mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1731.5mil|Location2.X=1814.5mil|Location1.Y=5190.074mil|Location2.Y=5273.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1731.5mil|Location2.X=1814.5mil|Location1.Y=5190.074mil|Location2.Y=5273.074mil|Absolute=True">Width Constraint: Track (1773mil,2720.574mil)(1773mil,7742.574mil) on Bottom Layer Actual Width = 80mil, Target Width = 30mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.925mil|Location2.X=2016.925mil|Location1.Y=2289.999mil|Location2.Y=2372.999mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.925mil|Location2.X=2016.925mil|Location1.Y=2289.999mil|Location2.Y=2372.999mil|Absolute=True">Width Constraint: Track (1975.425mil,1970mil)(1975.425mil,2692.999mil) on Bottom Layer Actual Width = 80mil, Target Width = 30mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1737.075mil|Location2.X=1820.075mil|Location1.Y=2290mil|Location2.Y=2373mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1737.075mil|Location2.X=1820.075mil|Location1.Y=2290mil|Location2.Y=2373mil|Absolute=True">Width Constraint: Track (1778.575mil,1970mil)(1778.575mil,2693.001mil) on Bottom Layer Actual Width = 80mil, Target Width = 30mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1976.213mil|Location2.X=2059.213mil|Location1.Y=7870.5mil|Location2.Y=7953.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1976.213mil|Location2.X=2059.213mil|Location1.Y=7870.5mil|Location2.Y=7953.5mil|Absolute=True">Width Constraint: Track (1800.426mil,7912mil)(2235mil,7912mil) on Bottom Layer Actual Width = 80mil, Target Width = 30mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDDAO5WWHKHLCRESOYYP5EN4V1MLCMH30WESXCVREGDMR3BFGPE2WE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4590.526mil|Location2.X=4709.886mil|Location1.Y=6439.674mil|Location2.Y=6559.034mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4590.526mil|Location2.X=4709.886mil|Location1.Y=6439.674mil|Location2.Y=6559.034mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad Free-1(4650.206mil,6499.354mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6997.32mil|Location2.X=7116.68mil|Location1.Y=6203.32mil|Location2.Y=6322.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6997.32mil|Location2.X=7116.68mil|Location1.Y=6203.32mil|Location2.Y=6322.68mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad Free-1(7057mil,6263mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4665.526mil|Location2.X=4784.886mil|Location1.Y=2145.966mil|Location2.Y=2265.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4665.526mil|Location2.X=4784.886mil|Location1.Y=2145.966mil|Location2.Y=2265.326mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad Free-1(4725.206mil,2205.646mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID1Z4V5OWI3UQ3P3QGCTTY4KQELK3ACNTBXQUZ3MJLDIYJXLPG3VGP"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4286.409mil|Location2.X=4294.076mil|Location1.Y=3879.21mil|Location2.Y=3886.876mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4286.409mil|Location2.X=4294.076mil|Location1.Y=3879.21mil|Location2.Y=3886.876mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "R1" (4279mil,3819mil) on Top Overlay And Pad Udiff-3(4305mil,3899.701mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4491.192mil|Location2.X=4502.442mil|Location1.Y=4377.375mil|Location2.Y=4388.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4491.192mil|Location2.X=4502.442mil|Location1.Y=4377.375mil|Location2.Y=4388.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4505mil,4383mil)(4545mil,4383mil) on Top Overlay And Pad R4-2(4465mil,4383mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4827.558mil|Location2.X=4838.808mil|Location1.Y=4377.375mil|Location2.Y=4388.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4827.558mil|Location2.X=4838.808mil|Location1.Y=4377.375mil|Location2.Y=4388.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4785mil,4383mil)(4825mil,4383mil) on Top Overlay And Pad R4-1(4865mil,4383mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4836.558mil|Location2.X=4847.808mil|Location1.Y=5228.375mil|Location2.Y=5239.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4836.558mil|Location2.X=4847.808mil|Location1.Y=5228.375mil|Location2.Y=5239.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4794mil,5234mil)(4834mil,5234mil) on Top Overlay And Pad R3-2(4874mil,5234mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4500.192mil|Location2.X=4511.442mil|Location1.Y=5228.375mil|Location2.Y=5239.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4500.192mil|Location2.X=4511.442mil|Location1.Y=5228.375mil|Location2.Y=5239.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4514mil,5234mil)(4554mil,5234mil) on Top Overlay And Pad R3-1(4474mil,5234mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.375mil|Location2.X=4551.625mil|Location1.Y=3716.558mil|Location2.Y=3727.808mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.375mil|Location2.X=4551.625mil|Location1.Y=3716.558mil|Location2.Y=3727.808mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4546mil,3674mil)(4546mil,3714mil) on Top Overlay And Pad R2-2(4546mil,3754mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.375mil|Location2.X=4551.625mil|Location1.Y=3380.192mil|Location2.Y=3391.442mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.375mil|Location2.X=4551.625mil|Location1.Y=3380.192mil|Location2.Y=3391.442mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4546mil,3394mil)(4546mil,3434mil) on Top Overlay And Pad R2-1(4546mil,3354mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4307.375mil|Location2.X=4318.625mil|Location1.Y=3383.192mil|Location2.Y=3394.442mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4307.375mil|Location2.X=4318.625mil|Location1.Y=3383.192mil|Location2.Y=3394.442mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4313mil,3397mil)(4313mil,3437mil) on Top Overlay And Pad R1-2(4313mil,3357mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4307.375mil|Location2.X=4318.625mil|Location1.Y=3719.558mil|Location2.Y=3730.808mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4307.375mil|Location2.X=4318.625mil|Location1.Y=3719.558mil|Location2.Y=3730.808mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4313mil,3677mil)(4313mil,3717mil) on Top Overlay And Pad R1-1(4313mil,3757mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5108.375mil|Location2.X=5119.625mil|Location1.Y=8518.558mil|Location2.Y=8529.808mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5108.375mil|Location2.X=5119.625mil|Location1.Y=8518.558mil|Location2.Y=8529.808mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (5114mil,8476mil)(5114mil,8516mil) on Top Overlay And Pad R19-2(5114mil,8556mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5108.375mil|Location2.X=5119.625mil|Location1.Y=8182.192mil|Location2.Y=8193.442mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5108.375mil|Location2.X=5119.625mil|Location1.Y=8182.192mil|Location2.Y=8193.442mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (5114mil,8196mil)(5114mil,8236mil) on Top Overlay And Pad R19-1(5114mil,8156mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3110.192mil|Location2.X=3121.442mil|Location1.Y=8201.375mil|Location2.Y=8212.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3110.192mil|Location2.X=3121.442mil|Location1.Y=8201.375mil|Location2.Y=8212.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (3124mil,8207mil)(3164mil,8207mil) on Top Overlay And Pad R16-2(3084mil,8207mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3446.558mil|Location2.X=3457.808mil|Location1.Y=8201.375mil|Location2.Y=8212.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3446.558mil|Location2.X=3457.808mil|Location1.Y=8201.375mil|Location2.Y=8212.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (3404mil,8207mil)(3444mil,8207mil) on Top Overlay And Pad R16-1(3484mil,8207mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2914.558mil|Location2.X=2925.808mil|Location1.Y=8685.375mil|Location2.Y=8696.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2914.558mil|Location2.X=2925.808mil|Location1.Y=8685.375mil|Location2.Y=8696.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (2872mil,8691mil)(2912mil,8691mil) on Top Overlay And Pad R17-2(2952mil,8691mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2578.192mil|Location2.X=2589.442mil|Location1.Y=8685.375mil|Location2.Y=8696.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2578.192mil|Location2.X=2589.442mil|Location1.Y=8685.375mil|Location2.Y=8696.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (2592mil,8691mil)(2632mil,8691mil) on Top Overlay And Pad R17-1(2552mil,8691mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2339.375mil|Location2.X=2350.625mil|Location1.Y=8542.558mil|Location2.Y=8553.808mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2339.375mil|Location2.X=2350.625mil|Location1.Y=8542.558mil|Location2.Y=8553.808mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (2345mil,8500mil)(2345mil,8540mil) on Top Overlay And Pad R18-2(2345mil,8580mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2339.375mil|Location2.X=2350.625mil|Location1.Y=8206.192mil|Location2.Y=8217.442mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2339.375mil|Location2.X=2350.625mil|Location1.Y=8206.192mil|Location2.Y=8217.442mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (2345mil,8220mil)(2345mil,8260mil) on Top Overlay And Pad R18-1(2345mil,8180mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3725.375mil|Location2.X=3736.625mil|Location1.Y=8599.558mil|Location2.Y=8610.808mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3725.375mil|Location2.X=3736.625mil|Location1.Y=8599.558mil|Location2.Y=8610.808mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (3731mil,8557mil)(3731mil,8597mil) on Top Overlay And Pad R12-2(3731mil,8637mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3725.375mil|Location2.X=3736.625mil|Location1.Y=8263.192mil|Location2.Y=8274.442mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3725.375mil|Location2.X=3736.625mil|Location1.Y=8263.192mil|Location2.Y=8274.442mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (3731mil,8277mil)(3731mil,8317mil) on Top Overlay And Pad R12-1(3731mil,8237mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4448.375mil|Location2.X=4459.625mil|Location1.Y=7265.192mil|Location2.Y=7276.442mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4448.375mil|Location2.X=4459.625mil|Location1.Y=7265.192mil|Location2.Y=7276.442mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4454mil,7279mil)(4454mil,7319mil) on Top Overlay And Pad R11-2(4454mil,7239mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4448.375mil|Location2.X=4459.625mil|Location1.Y=7601.558mil|Location2.Y=7612.808mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4448.375mil|Location2.X=4459.625mil|Location1.Y=7601.558mil|Location2.Y=7612.808mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.491mil &lt; 10mil) Between Track (4454mil,7559mil)(4454mil,7599mil) on Top Overlay And Pad R11-1(4454mil,7639mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.491mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDEUCE00BPEDPOKII4MVIF5JGELBT0GA4UA4F2KGRW5RAJ2LBXDL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2165.584mil|Location2.X=2176.834mil|Location1.Y=7991.375mil|Location2.Y=8002.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2165.584mil|Location2.X=2176.834mil|Location1.Y=7991.375mil|Location2.Y=8002.625mil|Absolute=True">Silk To Silk Clearance Constraint: (4.471mil &lt; 10mil) Between Text "Q1" (2084mil,7997mil) on Top Overlay And Track (2175.945mil,7784.047mil)(2175.945mil,8039.953mil) on Top Overlay Silk Text to Silk Clearance [4.471mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDPWZZB3E1RPMONPDRWGS2PAQT2OERNZ2JZ3DEM3I3GDS0GJXKQJND"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3889.5mil|Location2.X=3965.336mil|Location1.Y=4587.5mil|Location2.Y=4709.456mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3889.5mil|Location2.X=3965.336mil|Location1.Y=4587.5mil|Location2.Y=4709.456mil|Absolute=True">Net Antennae: Via (3922mil,4620mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4784.5mil|Location2.X=4860.336mil|Location1.Y=3536.5mil|Location2.Y=3658.456mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4784.5mil|Location2.X=4860.336mil|Location1.Y=3536.5mil|Location2.Y=3658.456mil|Absolute=True">Net Antennae: Via (4817mil,3569mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.5mil|Location2.X=4764.336mil|Location1.Y=3811.5mil|Location2.Y=3933.456mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4688.5mil|Location2.X=4764.336mil|Location1.Y=3811.5mil|Location2.Y=3933.456mil|Absolute=True">Net Antennae: Via (4721mil,3844mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3637.5mil|Location2.X=3713.336mil|Location1.Y=5970.5mil|Location2.Y=6092.456mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3637.5mil|Location2.X=3713.336mil|Location1.Y=5970.5mil|Location2.Y=6092.456mil|Absolute=True">Net Antennae: Via (3670mil,6003mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4421.5mil|Location2.X=4497.336mil|Location1.Y=7841.5mil|Location2.Y=7963.456mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4421.5mil|Location2.X=4497.336mil|Location1.Y=7841.5mil|Location2.Y=7963.456mil|Absolute=True">Net Antennae: Via (4454mil,7874mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4437.5mil|Location2.X=4513.336mil|Location1.Y=8091.5mil|Location2.Y=8213.456mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\HP\Documents\3rd sem\Laboratory practice\Lab projrct\Group_10\PCB\Lab_project\Lab_Project\Hot_Water_Dispensar.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4437.5mil|Location2.X=4513.336mil|Location1.Y=8091.5mil|Location2.Y=8213.456mil|Absolute=True">Net Antennae: Via (4470mil,8124mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

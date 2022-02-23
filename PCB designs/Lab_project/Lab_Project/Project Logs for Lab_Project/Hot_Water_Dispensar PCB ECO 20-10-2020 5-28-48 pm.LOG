@@ -1,0 +1,8 @@
+Change Component Designator: OldDesignator=J NewDesignator=Jsignal
+Change Component Designator: OldDesignator=U NewDesignator=Udiff
+Change Component Designator: OldDesignator=U NewDesignator=Us
+Change Net Name : Old Net Name=NetJ_1 New Net Name=NetJsignal_1
+Change Net Name : Old Net Name=NetJ_2 New Net Name=NetJsignal_2
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component Jsignal 1935161
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component Udiff UA741CP
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component Us UA741CP

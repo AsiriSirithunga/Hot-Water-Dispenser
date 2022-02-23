@@ -1,0 +1,26 @@
+Removed Pin From Net: NetName=NetR4_2 Pin=U3-1
+Removed Pin From Net: NetName=NetR3_2 Pin=U3-2
+Removed Pin From Net: NetName=NetR1_1 Pin=U3-3
+Removed Pin From Net: NetName=VCC+ Pin=U3-4
+Removed Pin From Net: NetName=VCC- Pin=U3-11
+Removed Member From Class: ClassName=Hot_Water_Dispensar Member=U1
+Removed Member From Class: ClassName=Hot_Water_Dispensar Member=U2
+Removed Member From Class: ClassName=Hot_Water_Dispensar Member=U3
+Added Component: Designator=U?(DIP794W45P254L1969H508Q14)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Good"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TL074IN/STMicroelectronics/view-part/481259/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TL074IN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "DIP-14 Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TL074IN/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TL074IN/STMicroelectronics/view-part/481259/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetR4_2 Pin=U?-1
+Added Pin To Net: NetName=NetR3_2 Pin=U?-2
+Added Pin To Net: NetName=NetR1_1 Pin=U?-3
+Added Pin To Net: NetName=VCC+ Pin=U?-4
+Added Pin To Net: NetName=VCC- Pin=U?-11
+Added Member To Class: ClassName=Hot_Water_Dispensar Member=Component U? TL074IN
+Added Room: Name=Hot_Water_Dispensar
